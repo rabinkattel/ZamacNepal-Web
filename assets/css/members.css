@@ -1,0 +1,66 @@
+/* EXTRA-STYLE FOR TRYING OUT
+PLEASE IGNORE!!!! ITS MY FIRST TIME DEVELOPING WEBPAGE
+CHAT GPT HELPED ME HERE
+ General styles for the members section */
+#members {
+    padding: 60px 0;
+    background-color: #f8f9fa; /* Light background color */
+}
+
+/* Heading styles */
+#members h3 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #4B0082; /* Use the same purple shade from your logo */
+}
+
+/* Card styles */
+.card {
+    border: none; /* No border */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Clip child elements */
+    transition: transform 0.2s ease; /* Smooth scaling */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+.card img {
+    height: 200px; /* Fixed height for images */
+    object-fit: cover; /* Maintain aspect ratio */
+}
+
+/* Card title styles */
+.card-title {
+    font-size: 1.5rem; /* Font size for card title */
+    color: #333; /* Dark text color */
+}
+
+/* Text styles for the card */
+.card-text {
+    font-size: 1rem; /* Standard font size */
+    color: #666; /* Gray text color */
+}
+
+/* Link styles */
+.card a {
+    color: #4B0082; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.card a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 30px; /* Margin below cards on small screens */
+    }
+
+    #members h3 {
+        font-size: 2rem; /* Smaller heading size on mobile */
+    }
+}

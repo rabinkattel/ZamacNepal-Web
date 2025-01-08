@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Nepalese Scale Models Collectors Community"
-    />
+    <meta name="description" content="Nepalese Scale Models Collectors Community" />
     <meta name="author" content="Nepalese Scale Models Collectors Community" />
     <link rel="shortcut icon" href="assets/ico/favicon.png" />
 
@@ -14,73 +11,116 @@
 
     <!-- Tailwind CSS -->
     <link href="assets/css/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
     />
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+
     <style>
       body {
         font-family: "Oswald", sans-serif;
         background-color: #1a1a1a;
         color: white;
       }
-      h1,
-      h3 {
+      h1, h3 {
         font-family: "EB Garamond", serif;
-      }
-      button {
-        background-color: #a6b0bd;
-        color: #1a1a1a;
-        font-weight: bold;
-      }
-      button:hover {
-        background-color: #8e99a7;
       }
       a {
         color: white;
+        transition: color 0.3s ease-in-out;
       }
       a:hover {
         color: #a6b0bd;
       }
       nav {
-        background-color: rgba(26, 26, 26, 0);
         transition: background-color 0.3s ease-in-out;
       }
-
       nav.scrolled {
         background-color: rgba(26, 26, 26, 0.75);
         backdrop-filter: blur(10px);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        .hamburger-menu {
+          display: block;
+        }
+        #mobileMenu {
+          display: none;
+        }
+        #mobileMenu.active {
+          display: block;
+        }
+      }
+      @media (min-width: 769px) {
+        .hamburger-menu {
+          display: none;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- Menu Options -->
+    <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
       <div
-        class="container mx-auto px-4 flex items-center justify-between py-4"
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
         <a href="index.html">
           <img
             src="assets/img/zamac-nepal-logo.png"
             alt="Zamac Nepal Logo"
-            class="h-24"
+            class="h-16"
           />
         </a>
-        <div class="space-x-4">
+        <div class="desktop-menu space-x-6">
           <a href="index.html" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
           <a href="gallery.html" class="hover:text-[#a6b0bd]">Gallery</a>
           <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
-          <a href="join_our_community.html" class="hover:text-[#a6b0bd]"
-            >Join Us</a
-          >
+          <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
         </div>
-        <a href="https://www.instagram.com/zamac_nepal" target="_blank">
+        <a
+          href="https://www.instagram.com/zamac_nepal"
+          target="_blank"
+          class="hidden md:block"
+        >
           <i
             class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
           ></i>
+        </a>
+        <div class="hamburger-menu">
+          <i
+            class="fas fa-bars text-3xl text-white cursor-pointer"
+            id="menuToggle"
+          ></i>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="space-y-4 px-4 py-4 bg-[#1a1a1a] text-white md:hidden"
+      >
+        <a href="index.html" class="block hover:text-[#a6b0bd]">Home</a>
+        <a href="members.html" class="block hover:text-[#a6b0bd]">Core Members</a>
+        <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
+        <a href="gallery.html" class="block hover:text-[#a6b0bd]">Gallery</a>
+        <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
+        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]">Join Us</a>
+        <a
+          href="https://www.instagram.com/zamac_nepal"
+          target="_blank"
+          class="block hover:text-[#a6b0bd]"
+        >
+          <i class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"></i>
         </a>
       </div>
     </nav>
@@ -110,146 +150,145 @@
 
     <!-- ABOUT US SECTION -->
     <section id="about" class="py-16">
-      <div
-        class="container mx-auto px-4 flex flex-col md:flex-row items-center"
-      >
-        <!-- Logo Section -->
-        <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center">
-          <img
-            src="assets/img/zamac-nepal-logo.png"
-            alt="Zamac Nepal Logo"
-            class="w-56 md:w-64"
-          />
-        </div>
-        <!-- Content Section -->
-        <div class="md:w-2/3 text-left">
-          <h3 class="text-3xl font-bold mb-6">OUR STORY</h3>
-          <p class="text-lg leading-relaxed">
-            The Nepalese Scale Models Collectors Community (Zamac Nepal) was
-            founded with the vision of bringing together scale model enthusiasts
-            from across Nepal. What started as a small group of passionate
-            collectors has grown into a vibrant community that celebrates the
-            artistry and craftsmanship of scale models.
-          </p>
-          <p class="text-lg leading-relaxed mt-4">
-            Our mission is to provide a platform for collectors to showcase
-            their collections, connect with like-minded individuals, and inspire
-            the next generation of hobbyists. From hosting exhibitions to
-            organizing meet-ups, we aim to create memorable experiences for our
-            members.
-          </p>
-          <p class="text-lg leading-relaxed mt-4">
-            Join us in our journey as we continue to nurture and grow Nepal's
-            scale model collector community.
-          </p>
-          <button class="mt-6 px-6 py-3 rounded">
-            <a href="join_our_community.html">BECOME A MEMBER</a>
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <!-- SPECIAL RECOGNITION SECTION -->
-    <section id="special-recognition" class="py-16 bg-[#111111]">
       <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold text-white mb-6">SPECIAL RECOGNITION</h3>
-        <p class="text-lg leading-relaxed text-white mx-auto max-w-3xl">
-          We would like to express our deepest gratitude to the incredible
-          organizations and individuals who have supported us in various ways,
-          helping our community grow and thrive.
+        <h3 class="text-3xl font-bold mb-6">OUR STORY</h3>
+        <p class="text-lg leading-relaxed mx-auto max-w-3xl">
+          The Nepalese Scale Models Collectors Community (Zamac Nepal) was
+          founded with the vision of bringing together scale model enthusiasts
+          from across Nepal. What started as a small group of passionate
+          collectors has grown into a vibrant community that celebrates the
+          artistry and craftsmanship of scale models.
         </p>
-
-        <!-- Recognition Cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-          <!-- Rabin Kattel Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">Rabin Kattel</h4>
-            <p class="text-lg text-white mt-2">
-              For his invaluable contribution in planning events, taking the
-              charge of event and creating this website for the community.
-            </p>
-            <a
-              href="https://www.instagram.com/rawbeen_collects"
-              target="_blank"
-            >
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-
-          <!-- Babin Kharel Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">Babin Kharel</h4>
-            <p class="text-lg text-white mt-2">
-              For providing the amazing freebies to attendees of the 1st Diecast
-              Collectors Meet-Up.
-            </p>
-            <a href="https://www.instagram.com/babin_k" target="_blank">
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-
-          <!-- Hungry Heroes Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">Hungry Heroes</h4>
-            <p class="text-lg text-white mt-2">
-              Granting us their venue and setting us menu for the 1st Diecast
-              Collectors Event.
-            </p>
-            <a href="https://www.instagram.com/hungryheroesnp" target="_blank">
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-          <!-- Rejil Shrestha Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">Rejil Shrestha</h4>
-            <p class="text-lg text-white mt-2">
-              For the exceptional handlng of videography in the 1st Diecast
-              Collectors Meet-Up
-            </p>
-            <a href="https://www.instagram.com/visiorej" target="_blank">
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-          <!-- Bijay Pakhrin Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">Bijay Pakhrin</h4>
-            <p class="text-lg text-white mt-2">
-              For the exceptional handlng of photography in the 1st Diecast
-              Collectors Meet-Up
-            </p>
-            <a href="https://www.instagram.com/rarecast.collector" target="_blank">
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-          <!-- ATG Nepal Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">ATG Nepal</h4>
-            <p class="text-lg text-white mt-2">
-              Providing us with their school location for the ATG Mini Games.
-            </p>
-            <a href="https://www.instagram.com/atg_nepal" target="_blank">
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-
-          <!-- Carmandu Collectibles Cafe Card -->
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold text-white">
-              Carmandu Collectibles Cafe
-            </h4>
-            <p class="text-lg text-white mt-2">
-              Offering their location for the Secret Santa Event.
-            </p>
-            <a
-              href="https://www.instagram.com/carmandu.collectibles.cafe"
-              target="_blank"
-            >
-              <i class="fab fa-instagram text-2xl text-white mt-4"></i>
-            </a>
-          </div>
-        </div>
+        <p class="text-lg leading-relaxed mt-4">
+          Our mission is to provide a platform for collectors to showcase
+          their collections, connect with like-minded individuals, and inspire
+          the next generation of hobbyists. From hosting exhibitions to
+          organizing meet-ups, we aim to create memorable experiences for our
+          members.
+        </p>
+        <p class="text-lg leading-relaxed mt-4">
+          Join us in our journey as we continue to nurture and grow Nepal's
+          scale model collector community.
+        </p>
+        <button class="mt-6 px-6 py-3 rounded">
+          <a href="join_our_community.html">BECOME A MEMBER</a>
+        </button>
       </div>
     </section>
+
+ <!-- SPECIAL RECOGNITION SECTION -->
+<section id="special-recognition" class="py-16 bg-[#111111]">
+  <div class="container mx-auto px-4 text-center">
+    <h3 class="text-3xl font-bold text-white mb-6">SPECIAL RECOGNITION</h3>
+    <p class="text-lg leading-relaxed text-white mx-auto max-w-3xl">
+      We would like to express our deepest gratitude to the incredible
+      organizations and individuals who have supported us in various ways,
+      helping our community grow and thrive.
+    </p>
+    <!-- Recognition Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+      <!-- Rabin Kattel Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Rabin Kattel</h4>
+        <p class="text-lg text-white mt-2">
+          For his invaluable contribution in planning events, taking charge of events, and creating this website for the community.
+        </p>
+        <a href="https://www.instagram.com/rawbeen_collects" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Babin Kharel Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Babin Kharel</h4>
+        <p class="text-lg text-white mt-2">
+          For providing amazing freebies to attendees of the 1st Diecast Collectors Meet-Up.
+        </p>
+        <a href="https://www.instagram.com/babin_k" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Hungry Heroes Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Hungry Heroes</h4>
+        <p class="text-lg text-white mt-2">
+          Granting their venue and setting the menu for the 1st Diecast Collectors Event.
+        </p>
+        <a href="https://www.instagram.com/hungryheroesnp" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Rejil Shrestha Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Rejil Shrestha</h4>
+        <p class="text-lg text-white mt-2">
+          For the exceptional handling of videography in the 1st Diecast Collectors Meet-Up.
+        </p>
+        <a href="https://www.instagram.com/visiorej" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Bijay Pakhrin Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Bijay Pakhrin</h4>
+        <p class="text-lg text-white mt-2">
+          For the exceptional handling of photography in the 1st Diecast Collectors Meet-Up.
+        </p>
+        <a href="https://www.instagram.com/rarecast.collector" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- ATG Nepal Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">ATG Nepal</h4>
+        <p class="text-lg text-white mt-2">
+          Providing their school location for the ATG Mini Games.
+        </p>
+        <a href="https://www.instagram.com/atg_nepal" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Carmandu Collectibles Cafe Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Carmandu Collectibles Cafe</h4>
+        <p class="text-lg text-white mt-2">
+          Offering their location for the Secret Santa Event.
+        </p>
+        <a href="https://www.instagram.com/carmandu.collectibles.cafe" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Anuj Gartaula Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Anuj Gartaula</h4>
+        <p class="text-lg text-white mt-2">
+          Doing 3 Hotwheels castings giveaways in the Secret Santa event.
+        </p>
+        <a href="https://www.instagram.com/funtimetoysandmore" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+
+      <!-- Vidhan Giri Card -->
+      <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+        <h4 class="text-xl font-bold text-white">Vidhan Giri</h4>
+        <p class="text-lg text-white mt-2">
+          Doing 3 Hotwheels castings giveaways in the Secret Santa event.
+        </p>
+        <a href="https://www.instagram.com/0.viii" target="_blank">
+          <i class="fab fa-instagram text-2xl text-white mt-4"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- FOOTER SECTION -->
     <footer class="py-6 text-center">
@@ -259,7 +298,15 @@
         Developed by Rayonix Solution.
       </p>
     </footer>
+
     <script>
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         if (window.scrollY > 50) {

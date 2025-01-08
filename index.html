@@ -58,6 +58,22 @@
         background-color: rgba(26, 26, 26, 0.75);
         backdrop-filter: blur(10px);
       }
+
+      #mobileMenu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #1a1a1a;
+      }
+
+      #mobileMenu a {
+        padding: 0.5rem 1rem;
+        width: 100%;
+      }
+
+      #mobileMenu.show {
+        display: flex;
+      }
     </style>
   </head>
 
@@ -71,7 +87,7 @@
           <img
             src="assets/img/zamac-nepal-logo.png"
             alt="Zamac Nepal Logo"
-            class="h-16 md:h-24"
+            class="h-24"
           />
         </a>
         <div class="hidden md:flex space-x-4">
@@ -84,25 +100,39 @@
             >Join Us</a
           >
         </div>
-        <div class="flex md:hidden">
+        <!-- Instagram Icon -->
+        <a
+          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          class="hidden md:block"
+        >
           <i
-            class="fas fa-bars text-2xl text-white cursor-pointer"
-            id="menuToggle"
+            class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
           ></i>
-        </div>
+        </a>
+        <i
+          class="fas fa-bars text-3xl text-white cursor-pointer md:hidden"
+          id="menuToggle"
+        ></i>
       </div>
       <div
         id="mobileMenu"
-        class="hidden flex-col bg-[#1a1a1a] text-white md:hidden space-y-2 px-4 py-2"
+        class="flex-col md:hidden text-white w-full"
       >
         <a href="#home" class="hover:text-[#a6b0bd]">Home</a>
         <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
         <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
         <a href="gallery.html" class="hover:text-[#a6b0bd]">Gallery</a>
         <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
-        <a href="join_our_community.html" class="hover:text-[#a6b0bd]"
-          >Join Us</a
+        <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
+        <!-- Instagram Icon in mobile -->
+        <a
+          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          target="_blank"
+          class="mt-2"
         >
+          <i class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"></i>
+        </a>
       </div>
     </nav>
 
@@ -113,50 +143,27 @@
       style="background-image: url('assets/img/header-bg-3-1.jpg')"
     >
       <div
-        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4"
+        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"
       >
         <img
           src="assets/img/nepalmap.png"
           alt="Nepalese Scale Models Collectors Logo"
-          class="w-40 md:w-56 mb-4"
+          class="w-56 mb-4"
         />
-        <h1 class="text-3xl md:text-6xl font-bold">
+        <h1 class="text-4xl md:text-6xl font-bold">
           Welcome to the Nepalese Scale Models Collectors Community
         </h1>
-        <h3 class="mt-4 text-lg md:text-2xl">
+        <h3 class="mt-4 text-xl md:text-2xl">
           Connecting collectors and enthusiasts across Nepal!
         </h3>
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-2xl md:text-3xl font-bold mb-6">ABOUT US</h3>
-        <p class="text-base md:text-lg leading-relaxed mx-auto max-w-3xl">
-          The Nepalese Scale Models Collectors Community is a dedicated group of
-          scale model enthusiasts who come together to share their passion for
-          collecting and showcasing scale models.
-        </p>
-        <p class="text-base md:text-lg leading-relaxed mt-4">
-          We organize events, exhibitions, and meet-ups for collectors to
-          connect, learn, and enjoy their hobby.
-        </p>
-        <p class="text-base md:text-lg leading-relaxed mt-4">
-          Join us in celebrating the artistry and craftsmanship of scale models,
-          and become part of a growing community!
-        </p>
-        <button id="joinUsBtn" class="mt-6 px-6 py-3 rounded">
-          <a href="join_our_community.html">JOIN OUR COMMUNITY</a>
-        </button>
-      </div>
-    </section>
-
-    <!-- FOOTER SECTION -->
+    <!-- Footer Section -->
     <footer class="py-6 text-center">
       <p class="text-sm">
         © 2024 | Zamac Nepal- Nepalese Scale Model Collectors Community. All
-        Rights Reserved.<br />Developed by Rayonix Soluton.
+        Rights Reserved.<br />Developed by Rayonix Solution.
       </p>
     </footer>
 
@@ -165,7 +172,7 @@
       const mobileMenu = document.querySelector("#mobileMenu");
 
       menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("hidden");
+        mobileMenu.classList.toggle("show");
       });
 
       window.addEventListener("scroll", () => {

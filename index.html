@@ -42,6 +42,7 @@
 
       a {
         color: white;
+        font-weight: bold;
       }
 
       a:hover {
@@ -50,15 +51,12 @@
 
       nav {
         background-color: rgba(26, 26, 26, 0);
-        /* Fully transparent */
         transition: background-color 0.3s ease-in-out;
       }
 
       nav.scrolled {
         background-color: rgba(26, 26, 26, 0.75);
-        /* 25% transparent */
         backdrop-filter: blur(10px);
-        /* Optional blur effect */
       }
     </style>
   </head>
@@ -73,10 +71,10 @@
           <img
             src="assets/img/zamac-nepal-logo.png"
             alt="Zamac Nepal Logo"
-            class="h-24"
+            class="h-16 md:h-24"
           />
         </a>
-        <div class="space-x-4">
+        <div class="hidden md:flex space-x-4">
           <a href="#home" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
@@ -86,15 +84,25 @@
             >Join Us</a
           >
         </div>
-        <!-- Instagram Icon -->
-        <a
-          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
-          target="_blank"
-        >
+        <div class="flex md:hidden">
           <i
-            class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
+            class="fas fa-bars text-2xl text-white cursor-pointer"
+            id="menuToggle"
           ></i>
-        </a>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="hidden flex-col bg-[#1a1a1a] text-white md:hidden space-y-2 px-4 py-2"
+      >
+        <a href="#home" class="hover:text-[#a6b0bd]">Home</a>
+        <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
+        <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
+        <a href="gallery.html" class="hover:text-[#a6b0bd]">Gallery</a>
+        <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
+        <a href="join_our_community.html" class="hover:text-[#a6b0bd]"
+          >Join Us</a
+        >
       </div>
     </nav>
 
@@ -105,17 +113,17 @@
       style="background-image: url('assets/img/header-bg-3-1.jpg')"
     >
       <div
-        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"
+        class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center px-4"
       >
         <img
           src="assets/img/nepalmap.png"
           alt="Nepalese Scale Models Collectors Logo"
-          class="w-56 mb-4"
+          class="w-40 md:w-56 mb-4"
         />
-        <h1 class="text-4xl md:text-6xl font-bold">
+        <h1 class="text-3xl md:text-6xl font-bold">
           Welcome to the Nepalese Scale Models Collectors Community
         </h1>
-        <h3 class="mt-4 text-xl md:text-2xl">
+        <h3 class="mt-4 text-lg md:text-2xl">
           Connecting collectors and enthusiasts across Nepal!
         </h3>
       </div>
@@ -124,46 +132,23 @@
     <!-- ABOUT SECTION -->
     <section id="about" class="py-16">
       <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold mb-6">ABOUT US</h3>
-        <p class="text-lg leading-relaxed mx-auto max-w-3xl">
+        <h3 class="text-2xl md:text-3xl font-bold mb-6">ABOUT US</h3>
+        <p class="text-base md:text-lg leading-relaxed mx-auto max-w-3xl">
           The Nepalese Scale Models Collectors Community is a dedicated group of
           scale model enthusiasts who come together to share their passion for
           collecting and showcasing scale models.
         </p>
-        <p class="text-lg leading-relaxed mt-4">
+        <p class="text-base md:text-lg leading-relaxed mt-4">
           We organize events, exhibitions, and meet-ups for collectors to
           connect, learn, and enjoy their hobby.
         </p>
-        <p class="text-lg leading-relaxed mt-4">
+        <p class="text-base md:text-lg leading-relaxed mt-4">
           Join us in celebrating the artistry and craftsmanship of scale models,
           and become part of a growing community!
         </p>
         <button id="joinUsBtn" class="mt-6 px-6 py-3 rounded">
           <a href="join_our_community.html">JOIN OUR COMMUNITY</a>
         </button>
-      </div>
-    </section>
-    
-
-    <!-- EVENTS SECTION -->
-    <section id="events" class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold mb-6">UPCOMING EVENTS</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold">1st Scale Model Exhibition</h4>
-            <p class="mt-2">Date: TBA</p>
-            <p>Location: TBA</p>
-            <p class="mt-4">
-              A showcase of the best scale models from various collectors.
-            </p>
-            <a
-              href="#"
-              class="mt-4 inline-block px-6 py-3 bg-[#1a1a1a] text-white font-bold rounded hover:bg-[#6b7b96]"
-              >Learn More</a
-            >
-          </div>
-        </div>
       </div>
     </section>
 
@@ -176,6 +161,13 @@
     </footer>
 
     <script>
+      const menuToggle = document.querySelector("#menuToggle");
+      const mobileMenu = document.querySelector("#mobileMenu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         if (window.scrollY > 50) {

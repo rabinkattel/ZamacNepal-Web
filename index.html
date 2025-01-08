@@ -66,13 +66,26 @@
         background-color: #1a1a1a;
       }
 
-      #mobileMenu a {
-        padding: 0.5rem 1rem;
-        width: 100%;
-      }
-
       #mobileMenu.show {
         display: flex;
+      }
+
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        #menuToggle {
+          display: block;
+        }
+      }
+
+      @media (min-width: 769px) {
+        #menuToggle {
+          display: none;
+        }
+        #mobileMenu {
+          display: none !important;
+        }
       }
     </style>
   </head>
@@ -90,7 +103,7 @@
             class="h-24"
           />
         </a>
-        <div class="hidden md:flex space-x-4">
+        <div class="desktop-menu flex space-x-4">
           <a href="#home" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>

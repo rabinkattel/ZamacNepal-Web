@@ -3,10 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Nepalese Scale Models Collectors Community"
-    />
+    <meta name="description" content="Nepalese Scale Models Collectors Community" />
     <meta name="author" content="Nepalese Scale Models Collectors Community" />
     <link rel="shortcut icon" href="assets/ico/favicon.png" />
 
@@ -14,101 +11,123 @@
 
     <!-- Tailwind CSS -->
     <link href="assets/css/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
     />
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/modernizr.custom.js"></script>
+
     <style>
       body {
         font-family: "Oswald", sans-serif;
         background-color: #1a1a1a;
         color: white;
       }
-      h1,
-      h3 {
+      h1, h3 {
         font-family: "EB Garamond", serif;
       }
       a {
         color: white;
+        transition: color 0.3s ease-in-out;
       }
       a:hover {
         color: #a6b0bd;
       }
-      .popup-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.8);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 1000;
-      }
-      .popup-content {
-        background: #1a1a1a;
-        padding: 2rem;
-        border-radius: 8px;
-        text-align: center;
-        max-width: 90%;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
-      }
-      .popup-content a {
-        color: #a6b0bd;
-      }
-      .popup-close {
-        margin-top: 1rem;
-        cursor: pointer;
-        color: #a6b0bd;
-        font-weight: bold;
-        text-decoration: underline;
-      }
       nav {
-        background-color: rgba(26, 26, 26, 0); /* Fully transparent */
         transition: background-color 0.3s ease-in-out;
       }
       nav.scrolled {
-        background-color: rgba(26, 26, 26, 0.75); /* 25% transparent */
-        backdrop-filter: blur(10px); /* Optional blur effect */
+        background-color: rgba(26, 26, 26, 0.75);
+        backdrop-filter: blur(10px);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        .hamburger-menu {
+          display: block;
+        }
+        #mobileMenu {
+          display: none;
+        }
+        #mobileMenu.active {
+          display: block;
+        }
+      }
+      @media (min-width: 769px) {
+        .hamburger-menu {
+          display: none;
+        }
       }
     </style>
   </head>
 
   <body>
-    <!-- Menu Options -->
+    <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
       <div
-        class="container mx-auto px-4 flex items-center justify-between py-4"
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
         <a href="index.html">
           <img
             src="assets/img/zamac-nepal-logo.png"
             alt="Zamac Nepal Logo"
-            class="h-24"
+            class="h-16"
           />
         </a>
-        <div class="space-x-4">
+        <div class="desktop-menu space-x-6">
           <a href="index.html" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
           <a href="gallery.html" class="hover:text-[#a6b0bd]">Gallery</a>
-          <a href="index.html#about" class="hover:text-[#a6b0bd]">About Us</a>
-          <a href="join_our_community.html" class="hover:text-[#a6b0bd]"
-            >Join Us</a
-          >
+          <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
+          <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
         </div>
-        <a href="https://www.instagram.com/zamac_nepal" target="_blank">
+        <a
+          href="https://www.instagram.com/zamac_nepal"
+          target="_blank"
+          class="hidden md:block"
+        >
           <i
             class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
           ></i>
+        </a>
+        <div class="hamburger-menu">
+          <i
+            class="fas fa-bars text-3xl text-white cursor-pointer"
+            id="menuToggle"
+          ></i>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="space-y-4 px-4 py-4 bg-[#1a1a1a] text-white md:hidden"
+      >
+        <a href="index.html" class="block hover:text-[#a6b0bd]">Home</a>
+        <a href="members.html" class="block hover:text-[#a6b0bd]">Core Members</a>
+        <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
+        <a href="gallery.html" class="block hover:text-[#a6b0bd]">Gallery</a>
+        <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
+        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]">Join Us</a>
+        <a
+          href="https://www.instagram.com/zamac_nepal"
+          target="_blank"
+          class="block hover:text-[#a6b0bd]"
+        >
+          <i class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"></i>
         </a>
       </div>
     </nav>
 
     <!-- HEADER SECTION -->
     <section
-      id="home"
+      id="events"
       class="relative h-screen bg-cover bg-center"
       style="background-image: url('assets/img/header-bg-3-1.jpg')"
     >
@@ -116,125 +135,92 @@
         class="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center items-center text-center"
       >
         <h1 class="text-4xl md:text-6xl font-bold">
-          Events by the Nepalese Scale Models Collectors Community
+          Events | Zamac Nepal
         </h1>
         <h3 class="mt-4 text-xl md:text-2xl">
-          Join us for exciting scale model events and exhibitions!
+          Relive the best moments and stay updated on upcoming events!
         </h3>
       </div>
     </section>
 
-    <!-- EVENTS SECTION -->
-    <section id="events" class="py-16">
-      <div class="container mx-auto px-4">
-        <h3 class="text-3xl font-bold mb-6 text-center">Completed Events</h3>
+    <!-- COMPLETED EVENTS SECTION -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-6">Completed Events</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Completed Event 1 -->
-          <div
-            class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700 cursor-pointer"
-            onclick="showPopup('popup1')"
-          >
+          <!-- Completed Event Card -->
+          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
             <h4 class="text-xl font-bold">1st Diecast Meet-Up</h4>
             <p class="mt-2">Status: Completed</p>
+            <p class="mt-2">
+              1st Collectors exclusive meetup event in Nepal.
+            </p>
+            <a
+              href="#"
+              class="mt-4 inline-block px-6 py-3 bg-[#1a1a1a] text-white font-bold rounded hover:bg-[#6b7b96]"
+            >
+              View Event
+            </a>
           </div>
-          <!-- Completed Event 2 -->
-          <div
-            class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700 cursor-pointer"
-            onclick="showPopup('popup2')"
-          >
+          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
             <h4 class="text-xl font-bold">ATG Mini Games</h4>
             <p class="mt-2">Status: Completed</p>
+            <p class="mt-2">
+              Small circle games with amazing gifts and prizes.
+            </p>
+            <a
+              href="#"
+              class="mt-4 inline-block px-6 py-3 bg-[#1a1a1a] text-white font-bold rounded hover:bg-[#6b7b96]"
+            >
+              View Event
+            </a>
           </div>
-          <!-- Completed Event 3 -->
-          <div
-            class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700 cursor-pointer"
-            onclick="showPopup('popup3')"
-          >
+          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
             <h4 class="text-xl font-bold">
               1st Collectors Exclusive Secret Santa
             </h4>
             <p class="mt-2">Status: Completed</p>
-          </div>
-        </div>
-
-        <h3 class="text-3xl font-bold mt-16 mb-6 text-center">
-          Upcoming Events
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Upcoming Event 1 -->
-          <div
-            class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700 cursor-pointer"
-            onclick="showPopup('popup4')"
-          >
-            <h4 class="text-xl font-bold">
-              Scale Models Collectors Exhibition
-            </h4>
-            <p class="mt-2">Status: Happening Soon</p>
+            <p class="mt-2">
+              Exclusive Secret Santa for scale model collectors.
+            </p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Popups -->
-    <div id="popup1" class="popup-overlay">
-      <div class="popup-content">
-        <h4 class="text-2xl font-bold">1st Diecast Meet-Up</h4>
-        <p class="mt-2">1st Collectors exclusive meetup event in Nepal.</p>
-        <a
-          href="https://www.instagram.com/p/DDCnJcdzgci/?img_index=1"
-          target="_blank"
-          >View Event</a
-        >
-        <p class="popup-close" onclick="hidePopup('popup1')">Close</p>
+    <!-- UPCOMING EVENTS SECTION -->
+    <section class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-6">Upcoming Events</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
+            <h4 class="text-xl font-bold">Scale Models Collectors Exhibition</h4>
+            <p class="mt-2">Status: Happening Soon</p>
+            <p class="mt-2">
+              An exciting exhibition of scale models from top collectors.
+            </p>
+          </div>
+        </div>
       </div>
-    </div>
-    <div id="popup2" class="popup-overlay">
-      <div class="popup-content">
-        <h4 class="text-2xl font-bold">ATG Mini Games</h4>
-        <p class="mt-2">Small circle games with amazing gifts and prizes.</p>
-        <a
-          href="https://www.instagram.com/p/DD2K8v3zDeP/?img_index=1"
-          target="_blank"
-          >View Event</a
-        >
-        <p class="popup-close" onclick="hidePopup('popup2')">Close</p>
-      </div>
-    </div>
-    <div id="popup3" class="popup-overlay">
-      <div class="popup-content">
-        <h4 class="text-2xl font-bold">
-          1st Collectors Exclusive Secret Santa
-        </h4>
-        <p class="mt-2">Exclusive Secret Santa for scale model collectors.</p>
-        <p class="popup-close" onclick="hidePopup('popup3')">Close</p>
-      </div>
-    </div>
-    <div id="popup4" class="popup-overlay">
-      <div class="popup-content">
-        <h4 class="text-2xl font-bold">Scale Models Collectors Exhibition</h4>
-        <p class="mt-2">
-          An exciting exhibition of scale models from top collectors.
-        </p>
-        <p class="popup-close" onclick="hidePopup('popup4')">Close</p>
-      </div>
-    </div>
+    </section>
 
     <!-- FOOTER SECTION -->
     <footer class="py-6 text-center">
       <p class="text-sm">
-        © 2024 | Zamac Nepal- Nepalese Scale Model Collectors Community. All
-        Rights Reserved.<br />Developed by Rayonix Solutions.
+        © 2024 | Zamac Nepal - Nepalese Scale Model Collectors Community. All Rights Reserved.
+        <br />Developed by Rayonix Soluton.
       </p>
     </footer>
 
     <!-- JavaScript -->
     <script>
-      function showPopup(popupId) {
-        document.getElementById(popupId).style.display = "flex";
-      }
-      function hidePopup(popupId) {
-        document.getElementById(popupId).style.display = "none";
-      }
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
         if (window.scrollY > 50) {

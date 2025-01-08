@@ -84,9 +84,7 @@
   <body>
     <!-- Menu Options -->
     <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
-      <div
-        class="container mx-auto px-4 flex items-center justify-between py-4"
-      >
+      <div class="container mx-auto px-4 flex items-center justify-between py-4">
         <a href="index.html">
           <img
             src="assets/img/zamac-nepal-logo.png"
@@ -94,7 +92,7 @@
             class="h-20"
           />
         </a>
-        <div class="desktop-menu space-x-4">
+        <div class="desktop-menu space-x-4 flex items-center">
           <a href="#home" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
@@ -102,25 +100,30 @@
           <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
           <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
         </div>
+
+        <!-- Instagram Icon outside the menu on desktop view -->
         <a
           href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
+          class="text-2xl text-white hover:text-[#a6b0bd] desktop-icon"
         >
-          <i
-            class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
-          ></i>
+          <i class="fab fa-instagram"></i>
         </a>
+
+        <!-- Hamburger Icon for Mobile -->
         <div class="hamburger-menu">
-          <i
-            class="fas fa-bars text-3xl text-white cursor-pointer"
-            id="menuToggle"
-          ></i>
+          <button
+            class="text-2xl text-white"
+            onclick="toggleMenu()"
+            id="hamburgerBtn"
+          >
+            <i class="fas fa-bars"></i>
+          </button>
         </div>
       </div>
-      <div
-        id="mobileMenu"
-        class="space-y-4 px-4 py-4 bg-[#1a1a1a] text-white md:hidden"
-      >
+      
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="bg-[#111111] text-white space-y-4 px-4 py-6">
         <a href="#home" class="block hover:text-[#a6b0bd]">Home</a>
         <a href="members.html" class="block hover:text-[#a6b0bd]">Core Members</a>
         <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
@@ -128,11 +131,11 @@
         <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
         <a href="join_our_community.html" class="block hover:text-[#a6b0bd]">Join Us</a>
         <a
-          href="https://www.instagram.com/zamac_nepal"
+          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          class="block hover:text-[#a6b0bd]"
+          class="block text-2xl text-white hover:text-[#a6b0bd]"
         >
-          <i class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"></i>
+          <i class="fab fa-instagram"></i>
         </a>
       </div>
     </nav>
@@ -160,66 +163,12 @@
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section id="about" class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold mb-6">ABOUT US</h3>
-        <p class="text-lg leading-relaxed mx-auto max-w-3xl">
-          The Nepalese Scale Models Collectors Community is a dedicated group of
-          scale model enthusiasts who come together to share their passion for
-          collecting and showcasing scale models.
-        </p>
-        <p class="text-lg leading-relaxed mt-4">
-          We organize events, exhibitions, and meet-ups for collectors to
-          connect, learn, and enjoy their hobby.
-        </p>
-        <p class="text-lg leading-relaxed mt-4">
-          Join us in celebrating the artistry and craftsmanship of scale models,
-          and become part of a growing community!
-        </p>
-        <button id="joinUsBtn" class="mt-6 px-6 py-3 rounded">
-          <a href="join_our_community.html">JOIN OUR COMMUNITY</a>
-        </button>
-      </div>
-    </section>
-
-    <!-- EVENTS SECTION -->
-    <section id="events" class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold mb-6">UPCOMING EVENTS</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
-            <h4 class="text-xl font-bold">1st Scale Model Exhibition</h4>
-            <p class="mt-2">Date: TBA</p>
-            <p>Location: TBA</p>
-            <p class="mt-4">
-              A showcase of the best scale models from various collectors.
-            </p>
-            <a
-              href="#"
-              class="mt-4 inline-block px-6 py-3 bg-[#1a1a1a] text-white font-bold rounded hover:bg-[#6b7b96]"
-              >Learn More</a
-            >
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER SECTION -->
-    <footer class="py-6 text-center">
-      <p class="text-sm">
-        © 2024 | Zamac Nepal - Nepalese Scale Model Collectors Community. All
-        Rights Reserved.<br />Developed by Rayonix Soluton.
-      </p>
-    </footer>
-
+    <!-- Script for toggling mobile menu -->
     <script>
-      const menuToggle = document.getElementById("menuToggle");
-      const mobileMenu = document.getElementById("mobileMenu");
-
-      menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("active");
-      });
+      function toggleMenu() {
+        const menu = document.getElementById("mobileMenu");
+        menu.classList.toggle("active");
+      }
 
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");

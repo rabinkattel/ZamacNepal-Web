@@ -15,7 +15,7 @@
     <!-- Tailwind CSS -->
     <link href="assets/css/tailwind.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
-    <!-- Add FontAwesome CDN for Instagram icon -->
+    <!-- FontAwesome for icons -->
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
       rel="stylesheet"
@@ -34,27 +34,22 @@
       h3 {
         font-family: "EB Garamond", serif;
       }
-      button {
-        background-color: #a6b0bd;
-        color: #1a1a1a;
-        font-weight: bold;
-      }
-      button:hover {
-        background-color: #8e99a7;
-      }
       a {
         color: white;
+        transition: color 0.3s ease-in-out;
       }
       a:hover {
         color: #a6b0bd;
       }
       nav {
-        background-color: rgba(26, 26, 26, 0);
         transition: background-color 0.3s ease-in-out;
       }
       nav.scrolled {
         background-color: rgba(26, 26, 26, 0.75);
         backdrop-filter: blur(10px);
+      }
+      .hamburger-menu {
+        display: none;
       }
       @media (max-width: 768px) {
         .desktop-menu {
@@ -79,7 +74,7 @@
   </head>
 
   <body>
-    <!-- Menu Options -->
+    <!-- Navbar -->
     <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
       <div
         class="container mx-auto px-4 py-4 flex items-center justify-between"
@@ -99,9 +94,8 @@
           <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
           <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
         </div>
-        <!-- Instagram Icon -->
         <a
-          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          href="https://www.instagram.com/zamac_nepal"
           target="_blank"
           class="hidden md:block"
         >
@@ -109,7 +103,6 @@
             class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
           ></i>
         </a>
-        <!-- Hamburger Menu Icon -->
         <div class="hamburger-menu">
           <i
             class="fas fa-bars text-3xl text-white cursor-pointer"
@@ -126,9 +119,11 @@
         <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
         <a href="gallery.html" class="block hover:text-[#a6b0bd]">Gallery</a>
         <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
-        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]">Join Us</a>
+        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]"
+          >Join Us</a
+        >
         <a
-          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          href="https://www.instagram.com/zamac_nepal"
           target="_blank"
           class="block hover:text-[#a6b0bd]"
         >
@@ -159,6 +154,72 @@
         </h3>
       </div>
     </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-16">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-6">GALLERY</h3>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="bg-[#1a1a1a] p-4 rounded-lg shadow-lg">
+            <img
+              src="assets/img/events/meet-up.jpg"
+              alt="First Collectors Meet Up Event"
+              class="w-full h-auto rounded-t-lg shadow-lg mb-4"
+            />
+            <h5 class="text-lg font-bold mb-2">
+              <a href="meet_up_event_2024.html" class="hover:text-[#a6b0bd]"
+                >First Collectors Meet Up Event</a
+              >
+            </h5>
+            <p class="text-sm text-gray-400">
+              Celebrating the passion for scale models among collectors.
+            </p>
+          </div>
+          <!-- Card 2 -->
+          <div class="bg-[#1a1a1a] p-4 rounded-lg shadow-lg">
+            <img
+              src="assets/img/events/atg-minigames.jpg"
+              alt="ATG: Mini-Games"
+              class="w-full h-auto rounded-t-lg shadow-lg mb-4"
+            />
+            <h5 class="text-lg font-bold mb-2">
+              <a href="atg_minigames.html" class="hover:text-[#a6b0bd]"
+                >ATG: Mini-Games</a
+              >
+            </h5>
+            <p class="text-sm text-gray-400">
+              A small very exclusive mini-games organized by ATG Nepal.
+            </p>
+          </div>
+          <!-- Card 3 -->
+          <div class="bg-[#1a1a1a] p-4 rounded-lg shadow-lg">
+            <img
+              src="assets/img/events/secret-santa.jpg"
+              alt="Collectors Gathering"
+              class="w-full h-auto rounded-t-lg shadow-lg mb-4"
+            />
+            <h5 class="text-lg font-bold mb-2">
+              <a href="secret-santa.html" class="hover:text-[#a6b0bd]"
+                >Collectors Exclusive Secret Santa</a
+              >
+            </h5>
+            <p class="text-sm text-gray-400">
+              Sneak Peek of Collectors Exclusive Secret Santa Event.
+            </p>
+          </div>
+          <!-- Add more cards as needed -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer class="bg-[#1a1a1a] py-6 text-center text-white">
+      <p class="text-sm">
+        © 2024 | Nepalese Scale Model Collectors Community. All Rights Reserved.<br />
+        Developed by Rayonix Solution.
+      </p>
+    </footer>
 
     <!-- JavaScript -->
     <script>

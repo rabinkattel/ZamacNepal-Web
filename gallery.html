@@ -56,29 +56,23 @@
         background-color: rgba(26, 26, 26, 0.75);
         backdrop-filter: blur(10px);
       }
-      #mobileMenu {
-        display: none;
-        flex-direction: column;
-        align-items: flex-start;
-        background-color: #1a1a1a;
-      }
-      #mobileMenu.show {
-        display: flex;
-      }
       @media (max-width: 768px) {
         .desktop-menu {
           display: none;
         }
-        #menuToggle {
+        .hamburger-menu {
+          display: block;
+        }
+        #mobileMenu {
+          display: none;
+        }
+        #mobileMenu.active {
           display: block;
         }
       }
       @media (min-width: 769px) {
-        #menuToggle {
+        .hamburger-menu {
           display: none;
-        }
-        #mobileMenu {
-          display: none !important;
         }
       }
     </style>
@@ -86,9 +80,9 @@
 
   <body>
     <!-- Menu Options -->
-    <nav class="fixed top-0 left-0 w-full shadow-lg z-50">
+    <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
       <div
-        class="container mx-auto px-4 flex items-center justify-between py-4"
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
         <a href="index.html">
           <img
@@ -97,7 +91,7 @@
             class="h-16"
           />
         </a>
-        <div class="desktop-menu flex space-x-4">
+        <div class="desktop-menu space-x-6">
           <a href="index.html" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
@@ -115,25 +109,28 @@
             class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
           ></i>
         </a>
-        <i
-          class="fas fa-bars text-3xl text-white cursor-pointer md:hidden"
-          id="menuToggle"
-        ></i>
+        <!-- Hamburger Menu Icon -->
+        <div class="hamburger-menu">
+          <i
+            class="fas fa-bars text-3xl text-white cursor-pointer"
+            id="menuToggle"
+          ></i>
+        </div>
       </div>
       <div
         id="mobileMenu"
-        class="flex-col md:hidden text-white w-full"
+        class="space-y-4 px-4 py-4 bg-[#1a1a1a] text-white md:hidden"
       >
-        <a href="index.html" class="hover:text-[#a6b0bd]">Home</a>
-        <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
-        <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
-        <a href="gallery.html" class="hover:text-[#a6b0bd]">Gallery</a>
-        <a href="about-us.html" class="hover:text-[#a6b0bd]">About Us</a>
-        <a href="join_our_community.html" class="hover:text-[#a6b0bd]">Join Us</a>
+        <a href="index.html" class="block hover:text-[#a6b0bd]">Home</a>
+        <a href="members.html" class="block hover:text-[#a6b0bd]">Core Members</a>
+        <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
+        <a href="gallery.html" class="block hover:text-[#a6b0bd]">Gallery</a>
+        <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
+        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]">Join Us</a>
         <a
           href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
           target="_blank"
-          class="mt-2"
+          class="block hover:text-[#a6b0bd]"
         >
           <i class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"></i>
         </a>
@@ -163,31 +160,13 @@
       </div>
     </section>
 
-    <!-- GALLERY SECTION -->
-    <section id="gallery" class="py-16">
-      <div class="container mx-auto px-4 text-center">
-        <h3 class="text-3xl font-bold mb-6">GALLERY</h3>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <!-- Event Card -->
-          <!-- Add event cards here -->
-        </div>
-      </div>
-    </section>
-
-    <!-- FOOTER SECTION -->
-    <footer class="bg-[#1a1a1a] py-6 text-center text-white">
-      <p class="text-sm">
-        © 2024 | Nepalese Scale Model Collectors Community. All Rights Reserved.
-        <br />Developed by Rayonix Solution.
-      </p>
-    </footer>
-
+    <!-- JavaScript -->
     <script>
-      const menuToggle = document.querySelector("#menuToggle");
-      const mobileMenu = document.querySelector("#mobileMenu");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
 
       menuToggle.addEventListener("click", () => {
-        mobileMenu.classList.toggle("show");
+        mobileMenu.classList.toggle("active");
       });
 
       window.addEventListener("scroll", () => {

@@ -16,10 +16,12 @@
 
     <!-- Tailwind CSS -->
     <link href="assets/css/tailwind.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
     <link
-      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
     />
+
     <style>
       body {
         font-family: "Oswald", sans-serif;
@@ -30,65 +32,106 @@
       h3 {
         font-family: "EB Garamond", serif;
       }
-      button {
-        background-color: #a6b0bd;
-        color: #1a1a1a;
-        font-weight: bold;
-      }
-      button:hover {
-        background-color: #8e99a7;
-      }
       a {
         color: white;
+        transition: color 0.3s ease-in-out;
       }
       a:hover {
         color: #a6b0bd;
       }
+      nav {
+        transition: background-color 0.3s ease-in-out;
+      }
+      nav.scrolled {
+        background-color: rgba(26, 26, 26, 0.75);
+        backdrop-filter: blur(10px);
+      }
+      .hamburger-menu {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .desktop-menu {
+          display: none;
+        }
+        .hamburger-menu {
+          display: block;
+        }
+        #mobileMenu {
+          display: none;
+        }
+        #mobileMenu.active {
+          display: block;
+        }
+      }
+      @media (min-width: 769px) {
+        .hamburger-menu {
+          display: none;
+        }
+      }
+
+      /* Modal Styles */
       .modal-overlay {
+        display: none;
         position: fixed;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         background-color: rgba(0, 0, 0, 0.7);
-        display: none;
         justify-content: center;
         align-items: center;
-        z-index: 50;
+        z-index: 1000;
       }
       .modal-content {
-        background-color: #1a1a1a;
-        padding: 2rem;
+        background-color: #2e2e2e;
+        padding: 20px;
         border-radius: 8px;
-        width: 80%;
         max-width: 600px;
+        width: 90%;
         text-align: center;
       }
-      nav {
-        background-color: rgba(26, 26, 26, 0); /* Fully transparent */
-        transition: background-color 0.3s ease-in-out;
+      .modal-content h3 {
+        color: #fff;
+        font-size: 24px;
+        margin-bottom: 10px;
       }
-      nav.scrolled {
-        background-color: rgba(26, 26, 26, 0.75); /* 25% transparent */
-        backdrop-filter: blur(10px); /* Optional blur effect */
+      .modal-content p {
+        color: #bbb;
+        font-size: 18px;
+        margin-bottom: 20px;
+      }
+      .modal-content iframe {
+        border-radius: 8px;
+      }
+      .modal-content button {
+        background-color: #8e99a7;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        color: #fff;
+        font-size: 16px;
+      }
+      .modal-content button:hover {
+        background-color: #a6b0bd;
       }
     </style>
   </head>
 
   <body>
-    <!-- Menu Options -->
-    <nav class="fixed top-0 left-0 w-full bg-[#1a1a1a] shadow-lg z-50">
+    <!-- Navbar -->
+    <nav class="fixed top-0 left-0 w-full bg-[#111111] shadow-lg z-50">
       <div
-        class="container mx-auto px-4 flex items-center justify-between py-4"
+        class="container mx-auto px-4 py-4 flex items-center justify-between"
       >
         <a href="index.html">
           <img
             src="assets/img/zamac-nepal-logo.png"
             alt="Zamac Nepal Logo"
-            class="h-24"
+            class="h-16"
           />
         </a>
-        <div class="space-x-4">
+        <div class="desktop-menu space-x-6">
           <a href="index.html" class="hover:text-[#a6b0bd]">Home</a>
           <a href="members.html" class="hover:text-[#a6b0bd]">Core Members</a>
           <a href="events.html" class="hover:text-[#a6b0bd]">Events</a>
@@ -98,10 +141,40 @@
             >Join Us</a
           >
         </div>
-        <!-- Instagram Icon -->
         <a
-          href="https://www.instagram.com/zamac_nepal?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+          href="https://www.instagram.com/zamac_nepal"
           target="_blank"
+          class="hidden md:block"
+        >
+          <i
+            class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
+          ></i>
+        </a>
+        <div class="hamburger-menu">
+          <i
+            class="fas fa-bars text-3xl text-white cursor-pointer"
+            id="menuToggle"
+          ></i>
+        </div>
+      </div>
+      <div
+        id="mobileMenu"
+        class="space-y-4 px-4 py-4 bg-[#1a1a1a] text-white md:hidden"
+      >
+        <a href="index.html" class="block hover:text-[#a6b0bd]">Home</a>
+        <a href="members.html" class="block hover:text-[#a6b0bd]"
+          >Core Members</a
+        >
+        <a href="events.html" class="block hover:text-[#a6b0bd]">Events</a>
+        <a href="gallery.html" class="block hover:text-[#a6b0bd]">Gallery</a>
+        <a href="about-us.html" class="block hover:text-[#a6b0bd]">About Us</a>
+        <a href="join_our_community.html" class="block hover:text-[#a6b0bd]"
+          >Join Us</a
+        >
+        <a
+          href="https://www.instagram.com/zamac_nepal"
+          target="_blank"
+          class="block hover:text-[#a6b0bd]"
         >
           <i
             class="fab fa-instagram text-3xl text-white hover:text-[#a6b0bd]"
@@ -130,7 +203,10 @@
           collectors!
         </h3>
         <!-- Join Us Button in Header -->
-        <button id="joinUsBtn" class="mt-6 px-6 py-3 rounded">
+        <button
+          id="joinUsBtn"
+          class="mt-6 px-8 py-4 bg-gradient-to-r from-[#333333] to-[#242424] text-white font-semibold text-xl rounded-lg shadow-md hover:bg-gradient-to-l hover:from-[#242424] hover:to-[#333333] transform transition duration-300 ease-in-out hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white"
+        >
           Join Us Today
         </button>
       </div>
@@ -177,14 +253,29 @@
     <!-- Footer -->
     <footer class="py-6 text-center">
       <p class="text-sm">
-        © 2024 |Zamac Nepal - Nepalese Scale Model Collectors Community. All
+        © 2024 | Zamac Nepal - Nepalese Scale Model Collectors Community. All
         Rights Reserved.<br />
         Developed by Rayonix Solutions
       </p>
     </footer>
 
     <script>
-      // Show the modal when "Join Us Today" button is clicked
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+      });
+
+      window.addEventListener("scroll", () => {
+        const nav = document.querySelector("nav");
+        if (window.scrollY > 50) {
+          nav.classList.add("scrolled");
+        } else {
+          nav.classList.remove("scrolled");
+        }
+      });
+
       const joinUsBtn = document.getElementById("joinUsBtn");
       const joinUsModal = document.getElementById("joinUsModal");
       const closeModalBtn = document.getElementById("closeModalBtn");
@@ -200,14 +291,6 @@
       window.addEventListener("click", (e) => {
         if (e.target === joinUsModal) {
           joinUsModal.style.display = "none";
-        }
-      });
-      window.addEventListener("scroll", () => {
-        const nav = document.querySelector("nav");
-        if (window.scrollY > 50) {
-          nav.classList.add("scrolled");
-        } else {
-          nav.classList.remove("scrolled");
         }
       });
     </script>

@@ -174,7 +174,7 @@
           remains a vibrant and inclusive space for all enthusiasts.
         </p>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div id="membersContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <!-- Member 1 -->
           <div class="bg-[#1a1a1a] p-6 rounded shadow-lg shadow-gray-700">
             <img
@@ -401,12 +401,30 @@
 
       window.addEventListener("scroll", () => {
         const nav = document.querySelector("nav");
+        
         if (window.scrollY > 50) {
+          
           nav.classList.add("scrolled");
+          
         } else {
+          
           nav.classList.remove("scrolled");
+          
         }
+        
       });
+      // Function to randomize member cards
+      function shuffleCards() {
+        const container = document.getElementById("membersContainer");
+        const cards = Array.from(container.children);
+        for (let i = cards.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          container.appendChild(cards[j]);
+        }
+      }
+
+      // Randomize cards on page load
+      window.onload = shuffleCards
     </script>
   </body>
 </html>
